@@ -1,6 +1,13 @@
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
-function SignUp({handleRegister}) {
+function SignUp() {
+    const navigate = useNavigate();
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        navigate("/register");
+    }
+
     return (
         <div className="login-signUp-form">
             <form>
@@ -18,7 +25,7 @@ function SignUp({handleRegister}) {
                     <div className="input-field">
                         <input type="password" placeholder="Password" autoComplete="new-password"/>
                     </div>
-                    <Link to={"login"} className="link">Have an account?</Link>
+                    <Link to={"/login"} className="link">Have an account?</Link>
                 </div>
                 <div className="action">
                     <button onClick={handleRegister}>Register</button>
