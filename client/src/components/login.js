@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
+import axiosHarperReq from "./axiosHarperReq";
 
 function Login() {
     const [state, setState] = useState({email:"", password:""});
@@ -8,6 +9,7 @@ function Login() {
     const handleLogin = (e) => {
         e.preventDefault();
         console.log(state);
+        axiosHarperReq(`select * from chat_app.users where email = \"${state.email}\" and password=\"${state.password}\"`)
         navigate("/login");
     }
     const handleEmail = (e) => {
