@@ -1,5 +1,5 @@
 
-function Login() {
+function Login({handleLogin, handleRegister}) {
     return (
             <div className="login-signUp-form">
                 <form>
@@ -14,8 +14,8 @@ function Login() {
                         {/*<a href="#" className="link">Forgot Your Password?</a>*/}
                     </div>
                     <div className="action">
-                        <button>Register</button>
-                        <button>Sign in</button>
+                        <button onClick={handleRegister}>Register</button>
+                        <button onClick={handleLogin}>Sign in</button>
                     </div>
                 </form>
             </div>

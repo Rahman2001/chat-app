@@ -1,4 +1,6 @@
-function SignUp() {
+import {Link} from "react-router-dom";
+
+function SignUp({handleRegister}) {
     return (
         <div className="login-signUp-form">
             <form>
@@ -16,11 +18,10 @@ function SignUp() {
                     <div className="input-field">
                         <input type="password" placeholder="Password" autoComplete="new-password"/>
                     </div>
-                    <a href="#" className="link">Have an account?</a>
+                    <Link to={"login"} className="link">Have an account?</Link>
                 </div>
                 <div className="action">
-                    <button>Register</button>
-
+                    <button onClick={handleRegister}>Register</button>
                 </div>
             </form>
         </div>
