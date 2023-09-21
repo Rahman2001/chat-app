@@ -3,26 +3,35 @@ import {Link, useNavigate} from "react-router-dom";
 import axiosHarperReq from "./axiosHarperReq";
 
 function Login() {
-    const [state, setState] = useState({email:"", password:""});
+    const [inputState, setInputState] = useState({email:"", password:""});
+    const [loginState, setLoginState] = useState('');
     const navigate = useNavigate();
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log(state);
-        axiosHarperReq(`select * from chat_app.users where email = \"${state.email}\" and password=\"${state.password}\"`)
+        const response = axiosHarperReq(`select * from chat_app.users where email = \"${inputState.email}\" and password=\"${inputState.password}\"`);
+            // .then((response) => {
+            //     console.log(response);
+            //     if(response.email === inputState.email && response.password === inputState.password) {
+            //
+            //     }else {
+            //         setLoginState('Email or/and password is incorrect!');
+            //     }
+            // })
+        response.then((res)=> console.log(JSON.stringify({...res})));
         navigate("/login");
     }
     const handleEmail = (e) => {
         e.preventDefault();
-        setState({
-            ...state,
+        setInputState({
+            ...inputState,
             email:e.target.value
         });
     }
     const handlePassword = (e) => {
         e.preventDefault();
-        setState({
-            ...state,
+        setInputState({
+            ...inputState,
             password: e.target.value
         });
     }
@@ -32,6 +41,7 @@ function Login() {
                 <form>
                     <h1>Login</h1>
                     <div className="content">
+                        {loginState && <div className="login-error">{loginState}</div>}
                         <div className="input-field">
                             <input type="email" placeholder="Email" autoComplete="nope" onChange={handleEmail}/>
                         </div>
