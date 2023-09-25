@@ -38,7 +38,6 @@ function Login() {
         });
     }
     useEffect(() => {
-        console.log(response);
         if(response) {
             if(response.status===200 && response.data.email === inputState.email
                 && response.data.password === inputState.password) {

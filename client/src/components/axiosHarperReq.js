@@ -1,6 +1,6 @@
 import axios from "axios";
 
-require('dotenv').config(); //loads environment variables of PC
+require('dotenv').config(); //loads environment variables from .env file located in the root
 
 function axiosHarperReq(sqlQuery) {
     let data = JSON.stringify({operation: "sql", sql: sqlQuery});
@@ -16,7 +16,6 @@ function axiosHarperReq(sqlQuery) {
 
     return axios(config)
         .then((res) => {
-            console.log(res);
             if(res.data.length > 0) {
                 return {...res, status:200};
             }else {
