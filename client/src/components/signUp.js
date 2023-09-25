@@ -4,7 +4,7 @@ import axiosHarperReq from "./axiosHarperReq";
 
 function SignUp() {
     const navigate = useNavigate();
-    const [state, setState] = useState({lastName:"", firstName:"", email:"", password:""});
+    const [inputState, setInputState] = useState({lastName:"", firstName:"", email:"", password:""});
     const [isUnique, setIsUnique] = useState(false);
 
     const handleRegister = (e) => {
@@ -19,24 +19,37 @@ function SignUp() {
             }else {
                 setIsUnique(false);
             }
-        })
+        });
+        if(isUnique) {
+            res = axiosHarperReq('insert into chat_app.users (firstName, lastName, email, password) ' +
+                `values(${inputState.firstName}, ${inputState.lastName}, ${inputState.email}, ${inputState.password})`)
+                .then(res => {return res;});
+            res.then(res => {
+                if(res.status === 200) {
+                    // fill in here! Make a program to alert if successfully created an account
+                }else {
+                    // do otherwise.
+                }
+            })
+        }
+
         // navigate("/register");
     }
     const handleLastName = (e) => {
         e.preventDefault();
-        setState({...state, lastName: e.target.value});
+        setInputState({...inputState, lastName: e.target.value});
     }
     const handleFirstName = (e) => {
         e.preventDefault();
-        setState({...state, firstName: e.target.value});
+        setInputState({...inputState, firstName: e.target.value});
     }
     const handleEmail = (e) => {
         e.preventDefault();
-        setState({...state, email: e.target.value});
+        setInputState({...inputState, email: e.target.value});
     }
     const handlePassword = (e) => {
         e.preventDefault();
-        setState({...state, password: e.target.value});
+        setInputState({...inputState, password: e.target.value});
     }
 
     return (
