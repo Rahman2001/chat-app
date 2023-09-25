@@ -1,14 +1,26 @@
 import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
+import axiosHarperReq from "./axiosHarperReq";
 
 function SignUp() {
     const navigate = useNavigate();
     const [state, setState] = useState({lastName:"", firstName:"", email:"", password:""});
+    const [isUnique, setIsUnique] = useState(false);
 
     const handleRegister = (e) => {
         e.preventDefault();
-        console.log(state);
-        navigate("/register");
+        let res = axiosHarperReq(`select * from chat_app.users where email =\"${state.email}\"`)
+            .then(res => {
+                return res;
+            });
+        res.then(res => {
+            if(res.status === 400) {
+                setIsUnique(true);
+            }else {
+                setIsUnique(false);
+            }
+        })
+        // navigate("/register");
     }
     const handleLastName = (e) => {
         e.preventDefault();
@@ -39,6 +51,7 @@ function SignUp() {
                         <input type="first-name" placeholder="First Name" autoComplete="nope" onChange={handleFirstName}/>
                     </div>
                     <div className="input-field">
+                        {!isUnique && <div className="login-error">{"Email already exists!"}</div> }
                         <input type="email" placeholder="Email" autoComplete="nope" onChange={handleEmail}/>
                     </div>
                     <div className="input-field">

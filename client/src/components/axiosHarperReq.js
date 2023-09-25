@@ -17,7 +17,7 @@ function axiosHarperReq(sqlQuery) {
     return axios(config)
         .then((res) => {
             if(res.data.length > 0) {
-                return {...res, status:200};
+                return res;
             }else {
                 return {status:400};
             }
