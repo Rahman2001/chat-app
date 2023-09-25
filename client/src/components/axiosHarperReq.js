@@ -3,7 +3,7 @@ import axios from "axios";
 require('dotenv').config(); //loads environment variables of PC
 
 function axiosHarperReq(sqlQuery) {
-    let data = JSON.stringify({operation:"sql", sql:sqlQuery});
+    let data = JSON.stringify({operation: "sql", sql: sqlQuery});
     const config = {
         method: 'post',
         url: process.env.REACT_APP_REWIRED_HARPERDB_URL,
@@ -11,15 +11,21 @@ function axiosHarperReq(sqlQuery) {
             'Content-Type': 'application/json',
             'Authorization': `Basic ${process.env.REACT_APP_REWIRED_HARPERDB_PW}`
         },
-        data : data
+        data: data
     };
 
-   return axios(config)
-        .then(function (response) {
-            return response.json;
+    return axios(config)
+        .then((res) => {
+            console.log(res);
+            if(res.data.length > 0) {
+                return {...res, status:200};
+            }else {
+                return {status:400};
+            }
         })
         .catch(function (error) {
             console.log(error);
+            return {code:400};
         });
 }
 
