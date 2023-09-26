@@ -1,7 +1,7 @@
 import axios from "axios";
 
 require('dotenv').config(); //loads environment variables from .env file located in the root
-const isSelect = ''
+
 function axiosHarperReq(sqlQuery) {
     let data = JSON.stringify({operation: "sql", sql: sqlQuery});
     const config = {

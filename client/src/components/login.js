@@ -1,12 +1,14 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import axiosHarperReq from "./axiosHarperReq";
+import {UserContext} from "../App";
 
-function Login() {
+function Login({handleCookies}) {
     const [inputState, setInputState] = useState({email:"", password:""});
     const [loginState, setLoginState] = useState('');
     const [response, setResponse] = useState({});
     const navigate = useNavigate();
+    const userDetails = useContext(UserContext);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -17,12 +19,16 @@ function Login() {
         res.then(res => {
             if(res.status === 200) {
                 setResponse({status:res.status, data:res.data[0]});
+                let tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate()+1);
+                handleCookies("chatUser", res.data, {expires:tomorrow});
+                navigate('/');
             }else {
                 setResponse(res);
             }
         });
-
     }
+
     const handleEmail = (e) => {
         e.preventDefault();
         setInputState({
@@ -47,6 +53,15 @@ function Login() {
             }
         }
     }, [response]);
+
+    useEffect(() => {
+        if(Object.keys(userDetails).length > 0) {
+            navigate('/');
+        }else {
+            console.log('No userDetails!');
+        }
+    }, []);
+
     return (
             <div className="login-signUp-form">
                 <form>

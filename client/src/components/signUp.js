@@ -2,38 +2,43 @@ import {Link, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import axiosHarperReq from "./axiosHarperReq";
 
-function SignUp() {
+function SignUp({handleCookies}) {
     const navigate = useNavigate();
     const [inputState, setInputState] = useState({lastName:"", firstName:"", email:"", password:""});
     const [isUnique, setIsUnique] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleRegister = (e) => {
         e.preventDefault();
-        let res = axiosHarperReq(`select * from chat_app.users where email =\"${state.email}\"`)
+        let res = axiosHarperReq(`select * from chat_app.users where email =\"${inputState.email}\"`)
             .then(res => {
                 return res;
             });
         res.then(res => {
             if(res.status === 400) {
+                setErrorMessage("");
                 setIsUnique(true);
             }else {
                 setIsUnique(false);
+                setErrorMessage("Email already exists!");
             }
         });
         if(isUnique) {
             res = axiosHarperReq('insert into chat_app.users (firstName, lastName, email, password) ' +
-                `values(${inputState.firstName}, ${inputState.lastName}, ${inputState.email}, ${inputState.password})`)
+                `values(\"${inputState.firstName}\", \"${inputState.lastName}\", \"${inputState.email}\", \"${inputState.password}\")`)
                 .then(res => {return res;});
+            
             res.then(res => {
                 if(res.status === 200) {
-                    // fill in here! Make a program to alert if successfully created an account
+                    let tomorrow = new Date();
+                    tomorrow.setDate(tomorrow.getDate()+1);
+                    handleCookies("chatUser", inputState, {expires:tomorrow});
+                    navigate('/');
                 }else {
-                    // do otherwise.
+                    setErrorMessage("Error has occurred during account creation! Please, try again.")
                 }
             })
         }
-
-        // navigate("/register");
     }
     const handleLastName = (e) => {
         e.preventDefault();
@@ -57,6 +62,7 @@ function SignUp() {
             <form>
                 <h1>Register</h1>
                 <div className="content">
+                    {isUnique && <div className={"login-error"}>{errorMessage}</div>}
                     <div className="input-field">
                         <input type="last-name" placeholder="Last Name" autoComplete="nope" onChange={handleLastName}/>
                     </div>
@@ -64,7 +70,7 @@ function SignUp() {
                         <input type="first-name" placeholder="First Name" autoComplete="nope" onChange={handleFirstName}/>
                     </div>
                     <div className="input-field">
-                        {!isUnique && <div className="login-error">{"Email already exists!"}</div> }
+                        {!isUnique && <div className="login-error">{errorMessage}</div> }
                         <input type="email" placeholder="Email" autoComplete="nope" onChange={handleEmail}/>
                     </div>
                     <div className="input-field">
