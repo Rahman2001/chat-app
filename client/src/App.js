@@ -13,18 +13,11 @@ export const UserContext = React.createContext(undefined);
 
 
 const App = memo(function App() {
-        // const [userDetails, setUserDetails] = useState({});
-        const [cookies, setCookies] = useCookies(['user']);
-
-        // useEffect(() => {
-        //     if(Object.keys(cookies.user).length > 0) {
-        //         setUserDetails(cookies.user);
-        //     }
-        // },[]);
+        const [cookies, setCookies] = useCookies(['chatUser']);
 
         return (
-            <CookiesProvider>
-                <UserContext.Provider value={cookies.user}>
+            <CookiesProvider cookies={cookies.chatUser}>
+                <UserContext.Provider value={cookies.chatUser}>
                     <Routes>
                         <Route path={"/"} element={<Home/>}/>
                         <Route path={"login"} element={<Login handleCookies={setCookies}/>}/>

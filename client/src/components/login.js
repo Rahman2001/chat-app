@@ -16,17 +16,7 @@ function Login({handleCookies}) {
             .then(res=> {
                 return res;
             });
-        res.then(res => {
-            if(res.status === 200) {
-                setResponse({status:res.status, data:res.data[0]});
-                let tomorrow = new Date();
-                tomorrow.setDate(tomorrow.getDate()+1);
-                handleCookies("chatUser", res.data, {expires:tomorrow});
-                navigate('/');
-            }else {
-                setResponse(res);
-            }
-        });
+        res.then(res => setResponse(res));
     }
 
     const handleEmail = (e) => {
@@ -44,18 +34,22 @@ function Login({handleCookies}) {
         });
     }
     useEffect(() => {
-        if(response) {
-            if(response.status===200 && response.data.email === inputState.email
-                && response.data.password === inputState.password) {
+        let tempRes = {status:response.status, data:{...response.data}[0]};
+            if(response.status===200 && tempRes.data.email === inputState.email
+                && tempRes.data.password === inputState.password) {
                 setLoginState('');
-            }else if(response.status === 400) {
+                let tomorrow = new Date();
+                tomorrow.setDate(tomorrow.getDate() + 1);
+                handleCookies("chatUser", tempRes.data, {path:'/', expires: tomorrow});
+                navigate('/');
+            }
+            else if(response.status === 400) {
                 setLoginState('Email or/and password is incorrect!');
             }
-        }
     }, [response]);
 
     useEffect(() => {
-        if(Object.keys(userDetails).length > 0) {
+        if(userDetails && Object.keys(userDetails).length > 0) {
             navigate('/');
         }else {
             console.log('No userDetails!');

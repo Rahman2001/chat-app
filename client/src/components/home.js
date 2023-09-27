@@ -6,6 +6,7 @@ import {useContext, useEffect} from "react";
 function Home() {
     const navigate = useNavigate();
     const value = useContext(UserContext);
+    console.log(value);
     useEffect(() => {
         if(!value || Object.keys(value).length === 0) {
             navigate('/login');
