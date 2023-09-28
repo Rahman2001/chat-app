@@ -1,4 +1,3 @@
-import './App.css';
 import socketIOClient from 'socket.io-client';
 import Login from "./components/login";
 import {Route, Routes} from "react-router-dom";
