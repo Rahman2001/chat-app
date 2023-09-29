@@ -5,8 +5,8 @@
   -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background: #e35869;
+#login-singUp-form-body {
+  background: #5172c3;
   font-family: 'Rubik', sans-serif;
 }
 

@@ -1,9 +1,10 @@
 import {UserContext} from "../App";
 import {useNavigate} from "react-router-dom";
 import {useContext, useEffect} from "react";
-import Chat_menu from "./chat_page_components/chat_menu";
-import Chat_discussion from "./chat_page_components/chat_discussions/chat_discussion";
-import Chat_content from "./chat_page_components/chat_contents/chat_content";
+import ChatMenu from "./chat_page_components/chat_menu";
+import ChatDiscussion from "./chat_page_components/chat_discussions/chat_discussion";
+import ChatContent from "./chat_page_components/chat_contents/chat_content";
+import main from '../css/main.css';
 
 function Home() {
     const navigate = useNavigate();
@@ -12,18 +13,21 @@ function Home() {
     useEffect(() => {
         if(!value || Object.keys(value).length === 0) {
             navigate('/login');
+        }else {
+            let body = document.body;
+            body.id = 'chat-app-page-body';
         }
     }, []);
 
     return (
         <div className="container">
             <div className="row">
-                <Chat_menu/>
-                <Chat_discussion/>
-                <Chat_content/>
+                <ChatMenu/>
+                <ChatDiscussion/>
+                <ChatContent/>
             </div>
         </div>
-    )
+    );
 
 }
 export default Home;

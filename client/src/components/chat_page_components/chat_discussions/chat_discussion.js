@@ -1,4 +1,4 @@
-function Chat_discussion() {
+function ChatDiscussion() {
     return (
         <section className="discussions">
             <div className="discussion search">
@@ -9,7 +9,7 @@ function Chat_discussion() {
             </div>
             <div className="discussion message-active">
                 <div className="photo"
-                     style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80);">
+                     style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80\")"}}>
                     <div className="online"></div>
                 </div>
                 <div className="desc-contact">
@@ -21,7 +21,7 @@ function Chat_discussion() {
 
             <div className="discussion">
                 <div className="photo"
-                     style="background-image: url(https://i.pinimg.com/originals/a9/26/52/a926525d966c9479c18d3b4f8e64b434.jpg);">
+                     style={{backgroundImage: "url(\"https://i.pinimg.com/originals/a9/26/52/a926525d966c9479c18d3b4f8e64b434.jpg\")"}}>
                     <div className="online"></div>
                 </div>
                 <div className="desc-contact">
@@ -33,7 +33,7 @@ function Chat_discussion() {
 
             <div className="discussion">
                 <div className="photo"
-                     style="background-image: url(https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80);">
+                     style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1497551060073-4c5ab6435f12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=667&amp;q=80\")"}}>
                 </div>
                 <div className="desc-contact">
                     <p className="name">Jerome Seiber</p>
@@ -44,7 +44,7 @@ function Chat_discussion() {
 
             <div className="discussion">
                 <div className="photo"
-                     style="background-image: url(https://card.thomasdaubenton.com/img/photo.jpg);">
+                     style={{backgroundImage: "url(\"https://card.thomasdaubenton.com/img/photo.jpg\")"}}>
                     <div className="online"></div>
                 </div>
                 <div className="desc-contact">
@@ -56,7 +56,7 @@ function Chat_discussion() {
 
             <div className="discussion">
                 <div className="photo"
-                     style="background-image: url(https://images.unsplash.com/photo-1553514029-1318c9127859?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=80);">
+                     style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1553514029-1318c9127859?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=700&amp;q=80\")"}}>
                 </div>
                 <div className="desc-contact">
                     <p className="name">Elsie Amador</p>
@@ -67,7 +67,7 @@ function Chat_discussion() {
 
             <div className="discussion">
                 <div className="photo"
-                     style="background-image: url(https://images.unsplash.com/photo-1541747157478-3222166cf342?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80);">
+                     style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1541747157478-3222166cf342?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80\")"}}>
                 </div>
                 <div className="desc-contact">
                     <p className="name">Billy Southard</p>
@@ -78,7 +78,7 @@ function Chat_discussion() {
 
             <div className="discussion">
                 <div className="photo"
-                     style="background-image: url(https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80);">
+                     style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1435348773030-a1d74f568bc2?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80\")"}}>
                     <div className="online"></div>
                 </div>
                 <div className="desc-contact">
@@ -90,4 +90,4 @@ function Chat_discussion() {
         </section>
     );
 }
-export default Chat_discussion;
+export default ChatDiscussion;

@@ -1,4 +1,5 @@
-function Chat_content() {
+
+function ChatContent() {
     return (
         <section className="chat">
             <div className="header-chat">
@@ -9,7 +10,7 @@ function Chat_content() {
             <div className="messages-chat">
                 <div className="message">
                     <div className="photo"
-                         style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80);">
+                        style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80\")"}}>
                         <div className="online"></div>
                     </div>
                     <p className="text"> Hi, how are you ? </p>
@@ -31,7 +32,7 @@ function Chat_content() {
                 <p className="response-time time"> 15h04</p>
                 <div className="message">
                     <div className="photo"
-                         style="background-image: url(https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80);">
+                         style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80\")"}}>
                         <div className="online"></div>
                     </div>
                     <p className="text"> 9 pm at the bar if possible 😳</p>
@@ -39,11 +40,11 @@ function Chat_content() {
                 <p className="time"> 15h09</p>
             </div>
             <div className="footer-chat">
-                <i className="icon fa fa-smile-o clickable" style="font-size:25pt;" aria-hidden="true"></i>
+                <i className="icon fa fa-smile-o clickable" style={{fontSize:'25pt', ariaHidden:true}}></i>
                 <input type="text" className="write-message" placeholder="Type your message here"/>
                 <i className="icon send fa fa-paper-plane-o clickable" aria-hidden="true"></i>
             </div>
         </section>
     );
 }
-export default Chat_content;
+export default ChatContent;

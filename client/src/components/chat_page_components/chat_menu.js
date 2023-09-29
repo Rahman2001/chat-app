@@ -1,4 +1,4 @@
-function Chat_menu() {
+function ChatMenu() {
     return (
         <nav className="menu">
             <ul className="items">
@@ -24,4 +24,4 @@ function Chat_menu() {
         </nav>
     );
 }
-export default Chat_menu;
+export default ChatMenu;
