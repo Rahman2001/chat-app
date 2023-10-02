@@ -1,3 +1,5 @@
+import MessageGenerator from "./message_generator";
+import Message from "./message";
 
 function ChatContent() {
     return (
@@ -8,36 +10,30 @@ function ChatContent() {
                 <i className="icon clickable fa fa-ellipsis-h right" aria-hidden="true"></i>
             </div>
             <div className="messages-chat">
-                <div className="message">
-                    <div className="photo"
-                        style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80\")"}}>
-                        <div className="online"></div>
+                <div className="chat-contents">
+                    <div className="message">
+                        <div className="photo"
+                             style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80\")"}}>
+                            <div className="online"></div>
+                        </div>
+                        <p className="text"> Hi, how are you ? </p>
                     </div>
-                    <p className="text"> Hi, how are you ? </p>
-                </div>
-                <div className="message text-only">
-                    <p className="text"> What are you doing tonight ? Want to go take a drink ?</p>
-                </div>
-                <p className="time"> 14h58</p>
-                <div className="message text-only">
-                    <div className="response">
-                        <p className="text"> Hey Megan ! It's been a while 😃</p>
+                    <div className="message text-only">
+                        <p className="text"> What are you doing tonight ? Want to go take a drink ?</p>
                     </div>
-                </div>
-                <div className="message text-only">
-                    <div className="response">
-                        <p className="text"> When can we meet ?</p>
+                    <p className="time"> 14h58</p>
+                    <div className="message text-only">
+                        <div className="response">
+                            <p className="text"> Hey Megan ! It's been a while 😃</p>
+                        </div>
                     </div>
-                </div>
-                <p className="response-time time"> 15h04</p>
-                <div className="message">
-                    <div className="photo"
-                         style={{backgroundImage: "url(\"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1050&amp;q=80\")"}}>
-                        <div className="online"></div>
+                    <div className="message text-only">
+                        <div className="response">
+                            <p className="text"> When can we meet ?</p>
+                        </div>
                     </div>
-                    <p className="text"> 9 pm at the bar if possible 😳</p>
+                    <MessageGenerator/>
                 </div>
-                <p className="time"> 15h09</p>
             </div>
             <div className="footer-chat">
                 <i className="icon fa fa-smile-o clickable" style={{fontSize:'25pt', ariaHidden:true}}></i>

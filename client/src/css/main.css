@@ -56,9 +56,13 @@
     width: 35%;
     height: 700px;
     box-shadow: 0px 8px 10px rgba(0,0,0,0.20);
-    overflow: hidden;
     background-color: #87a3ec;
     display: inline-block;
+    overflow: hidden;
+}
+.discussion_history {
+    height: inherit;
+    overflow: scroll;
 }
 
 .discussions .discussion {
@@ -177,6 +181,9 @@
 
 .chat {
     width: calc(65% - 85px);
+}
+.chat-contents {
+    overflow: scroll;
 }
 
 .header-chat {
