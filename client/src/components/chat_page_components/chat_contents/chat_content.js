@@ -1,4 +1,3 @@
-import MessageGenerator from "./message_generator";
 import {useContext, useState} from "react";
 import {UserContext} from "../../../App";
 import Message from "./message";
@@ -17,10 +16,10 @@ function ChatContent() {
         e.preventDefault();
         let date = new Date();
         let currentTime = date.getHours() + ":" + date.getMinutes();
-        if(lastTime === currentTime) {
-            currentTime = "";
-        }
-        console.log(currentTime);
+        // if(lastTime === currentTime) {
+        //     currentTime = "";
+        // }
+        // console.log(currentTime);
         setLastTime(currentTime);
         setMessage([...message, inputState]);
         setInputState('');

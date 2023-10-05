@@ -1,17 +1,17 @@
 import {useContext} from "react";
 import {UserContext} from "../../../App";
 
-function Message({message, sender, time, messageId}) {
+function Message({message, sender, time}) {
     const userDetails = useContext(UserContext);
     if(message !== '') {
         return userDetails.email === sender.email ?(
-            <div className="first-party-message" id={messageId}>
+            <div className="first-party-message">
                 <div className="message text-only">
                     <div className="response">
                         <p className="text">{message}</p>
                     </div>
                 </div>
-                {time !== "" && <p className="time">{time}</p>}
+                <p className="time">{time}</p>
             </div>
         ) : (
             <div className="second-party-message">
@@ -22,7 +22,7 @@ function Message({message, sender, time, messageId}) {
                     </div>
                     <p className="text">{message}</p>
                 </div>
-                {time !== "" && <p className="time">{time}</p>}
+                <p className="time">{time}</p>
             </div>
         );
     }

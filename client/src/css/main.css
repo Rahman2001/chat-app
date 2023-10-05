@@ -187,6 +187,9 @@
     overflow: auto;
     height: inherit;
 }
+.first-party-message {
+    display: flow-root;
+}
 .first-party-message > .time {
     margin: 0 40px 0 0;
     float: right;
