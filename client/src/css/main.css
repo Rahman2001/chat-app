@@ -181,9 +181,15 @@
 
 .chat {
     width: calc(65% - 85px);
+    height: 500px;
 }
 .chat-contents {
-    overflow: scroll;
+    overflow: auto;
+    height: inherit;
+}
+.first-party-message > .time {
+    margin: 0 40px 0 0;
+    float: right;
 }
 
 .header-chat {
