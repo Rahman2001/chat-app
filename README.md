@@ -4,7 +4,7 @@
   <li>React state/props</li>
   <li>React Hooks (useState, useContext, useCookies, etc.)</li>
   <li>React Routers</li>
-  <li>React Request (ajax)</li>
+  <li>React Request (axios)</li>
   <li>Component lifecycles</li>
 </ol>
 
