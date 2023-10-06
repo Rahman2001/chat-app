@@ -22,3 +22,7 @@ App allows users to chat with each other as any other messenger applications. Th
 This module consists of UI components that is utilized by React. When app is run, a user will see Sign in/up pages as below:
 
 ![registration page](https://github.com/Rahman2001/chat-app/blob/master/imagesForReadme/2023-10-06%20(1).png)
+![login page](https://github.com/Rahman2001/chat-app/blob/master/imagesForReadme/2023-10-06.png)
+
+If user is not new, then the application tries to get user credentials from cookies. After successful authentication, user will see chat page where he/she can interact with others:
+
